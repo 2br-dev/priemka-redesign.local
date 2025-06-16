@@ -1,0 +1,65 @@
+body {
+	& .margin-bottom {
+		margin-bottom: $gutter-width;
+	}
+
+	& .bttn {
+		display: inline-block;
+		border-radius: 2em;
+		background-color: $primary;
+		color: #fff;
+		padding: 0 1em;
+		line-height: 2em;
+		white-space: nowrap;
+		transition: background-color 0.2s;
+
+		&.large {
+			@extend .bttn;
+			font-size: clamp(18px, 2vw, 20px) !important;
+		}
+
+		&-outline {
+			@extend .bttn;
+			color: $primary;
+			background-color: transparent;
+			box-shadow: 0 0 0 1px $primary inset;
+
+			&:hover {
+				background-color: rgba(black, 0.05);
+			}
+		}
+
+		&-white {
+			@extend .bttn;
+			background-color: #fff;
+			color: $primary;
+		}
+	}
+
+	& .pin {
+		position: sticky;
+		top: 80px;
+	}
+
+	.mt0 {
+		margin-top: 0;
+	}
+
+	& .no-margin {
+		margin: 0;
+	}
+
+	& .fogged {
+		color: #808080;
+	}
+
+	& .disabled {
+		// opacity: .5;
+		cursor: not-allowed !important;
+		filter: saturate(0.2) brightness(1.5);
+
+		& * {
+			cursor: not-allowed !important;
+		}
+	}
+}

@@ -1,0 +1,67 @@
+@import "../frameworks/boxicons.min";
+@import url('https://fonts.googleapis.com/css2?family=Wix+Madefor+Text:ital,wght@0,400..800;1,400..800&display=swap');
+
+// $fontname: 'Cygre';
+$fontname: 'Wix Madefor Text';
+
+// @font-face {
+//     font-family: 'Cygre';
+//     font-weight: normal;
+//     src: 
+//         url('/lpk-2025/fonts/cygre-regular.ttf') format('truetype'),
+//         url('/lpk-2025/fonts/cygre-regular.woff') format('woff');
+// }
+
+// @font-face {
+//     font-family: 'Cygre';
+//     font-weight: 500;
+//     src: 
+//         url('/lpk-2025/fonts/cygre-medium.ttf') format('truetype'),
+//         url('/lpk-2025/fonts/cygre-medium.woff') format('woff');
+// }
+
+// @font-face {
+//     font-family: 'Cygre';
+//     font-weight: bold;
+//     src: 
+//         url('/lpk-2025/fonts/cygre-bold.ttf') format('truetype'),
+//         url('/lpk-2025/fonts/cygre-bold.woff') format('woff');
+// }
+
+body{
+    font-family: $fontname, 'Roboto', sans-serif;
+    font-size: clamp(16px, 2vw, 18px);
+    -webkit-font-smoothing: subpixel-antialiased;
+	color: $text;
+    line-height: 1.4em;
+
+    & h1{
+        font-size: clamp(31px, 4vw, 96px);
+        line-height: 1.4em;
+    }
+
+    & h2{
+        font-size: clamp(26px, 4vw, 64px);
+        line-height: 1.4em;
+    }
+
+    & h3{
+        font-size: clamp(20px, 3vw, 40px);
+        line-height: 1.4em;
+    }
+    
+    & h4{
+        font-size: clamp(16px, 3vw, 32px);
+        line-height: 1.4em;
+    }
+    
+    & .small{
+        font-size: clamp(10px, 2vw, 12px);
+        line-height: 1.6em;
+    }
+
+    & .large{
+        font-size: clamp(18px, 2vw, 32px);
+        line-height: 1.6em;
+    }
+}

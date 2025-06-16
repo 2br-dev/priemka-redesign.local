@@ -1,0 +1,15 @@
+//= Framework
+@import './frameworks/materialize';
+@import '../../node_modules/swiper/swiper.scss';
+
+//= Parts
+@import './parts/vars';
+@import './parts/helpers';
+@import './parts/custom_grid';
+@import './parts/typography';
+
+@import './parts/header';
+@import './parts/footer';
+
+//= Pages
+@import './pages/main';

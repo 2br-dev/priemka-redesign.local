@@ -1,8 +1,11 @@
 let template = `
 {{#Sections}}
 <div class="faculty-header" data-faculty="{{Name}}">
-	<div class="folder-arrow"></div>
 	<h4>{{Name}}</h4>
+	<div class="amount-wrapper">
+		<div class="amount"><span class="amout">{{CardsAmount}}</span> <span class="units">{{CardsUnits}}</span></div>
+		<div class="folder-arrow"></div>
+	</div>
 </div>
 <div class="section-wrapper">
 	<div class="section-content">
@@ -13,24 +16,27 @@ let template = `
 	{{/Label}}
 	<div class="spec-card hoverable z-depth-1" data-id="{{Id}}" data-faculty="{{Faculty.Name}}" data-no-data="{{NoDetails}}" >
 		<div class="card-content">
-			<div class="education-levels">
-			{{#Education_levels}}
-				<div data-level="{{Name}}" class="education-level">
-					{{#Forms}}
-					<a class="education-form">{{Name}}</a>
-					{{/Forms}}
+			<div class="card-top">
+				<div class="selected-form">{{SelectedFormName}}</div>
+				<div class="education-levels">
+				{{#Education_levels}}
+					<div data-level="{{Name}}" class="education-level">
+						{{#Forms}}
+						<a class="education-form">{{Name}}</a>
+						{{/Forms}}
+					</div>
+				{{/Education_levels}}
 				</div>
-			{{/Education_levels}}
 			</div>
 			<div class="title"><h4 class="no-margin">{{Speciality}}</h4></div>
 			<div class="subtitle"><span class="code">{{Education_levels.0.Code}}</span> {{Profile}}</div>
 			<div class="numbers">
 				<div class="number number-free">
-					<div class="section-title">Бюджетные места</div>
+					<div class="section-title">Бюджетныx</div>
 					<div class="number-value">{{SelectedLevel.Forms.0.Vacations.Free.Total}}</div>
 				</div>
 				<div class="number number-paid">
-					<div class="section-title">Места по договорам</div>
+					<div class="section-title">Платных</div>
 					<div class="number-value">{{SelectedLevel.Forms.0.Vacations.Paid.Total}}</div>
 				</div>
 				<div class="number number-duration">
@@ -53,7 +59,6 @@ let template = `
 				</div>
 			</div>
 			<div class="Separator"></div>
-			<div class="edform-wrapper"><div class="edform-name"><span>{{SelectedFormName}}</span></div></div>
 			<div class="requirements-wrapper">
 				<div class="requirements">
 					<div class="requirement-header">Обязательные предметы</div>
@@ -72,6 +77,9 @@ let template = `
 			</div>
 			{{/Note}}
 			<div class="card-call2action" data-form-c2a="{{SelectedFormName}}">
+				{{#RequirementsExists}}
+				<a class="bttn-flat requirements-trigger" href="#!"><span class="hide-m-down">Результаты </span>ЕГЭ</a>
+				{{/RequirementsExists}}
 				<span class="bttn">Подробнее</span>
 				{{#SelectedLevel.Video}}
 				<a class="bttn video-trigger" href="#video" data-video="{{SelectedLevel.Video}}"><i class="bx bx-play" ></i><span>Видео</span></a>

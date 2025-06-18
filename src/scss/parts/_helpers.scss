@@ -6,7 +6,7 @@ body {
 	& .bttn {
 		display: inline-block;
 		border-radius: 2em;
-		background-color: $primary;
+		background-color: $accent;
 		color: #fff;
 		padding: 0 1em;
 		line-height: 2em;
@@ -20,9 +20,9 @@ body {
 
 		&-outline {
 			@extend .bttn;
-			color: $primary;
+			color: $accent;
 			background-color: transparent;
-			box-shadow: 0 0 0 1px $primary inset;
+			box-shadow: 0 0 0 1px $accent inset;
 
 			&:hover {
 				background-color: rgba(black, 0.05);
@@ -32,7 +32,12 @@ body {
 		&-white {
 			@extend .bttn;
 			background-color: #fff;
-			color: $primary;
+			color: $accent;
+		}
+
+		&-flat{
+			@extend .bttn-outline;
+			box-shadow: none;
 		}
 	}
 

@@ -1,0 +1,27 @@
+[
+	{
+		"icon": "lpk-2025/img/icons/passport.png",
+		"header": "Паспорт",
+		"description": "Паспорт гражданина Российской Федерации"
+	},
+	{
+		"icon": "lpk-2025/img/icons/docs.png",
+		"header": "Документы об образовании",
+		"description": "Аттестат, диплом или другой документ об образовании"
+	},
+	{
+		"icon": "lpk-2025/img/icons/snils.png",
+		"header": "СНИЛС",
+		"description": "Страховой номер индивидуального лицевого счёта"
+	},
+	{
+		"icon": "lpk-2025/img/icons/photo.png",
+		"header": "Фотографии",
+		"description": "Фотокарточки 3х4 см (4 тш.)"
+	},
+	{
+		"icon": "lpk-2025/img/icons/spravka.png",
+		"header": "Справка",
+		"description": "Медицинская справка по форме 086/У"
+	}
+]

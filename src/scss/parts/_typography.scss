@@ -1,32 +1,19 @@
 @import "../frameworks/boxicons.min";
 @import url('https://fonts.googleapis.com/css2?family=Wix+Madefor+Text:ital,wght@0,400..800;1,400..800&display=swap');
 
-// $fontname: 'Cygre';
-$fontname: 'Wix Madefor Text';
+@font-face {
+    font-family: 'TT Travels Text';
+    src: url('../fonts/TT_Travels_Text_Regular.woff2') format('woff2');
+    font-weight: normal;
+}
 
-// @font-face {
-//     font-family: 'Cygre';
-//     font-weight: normal;
-//     src: 
-//         url('/lpk-2025/fonts/cygre-regular.ttf') format('truetype'),
-//         url('/lpk-2025/fonts/cygre-regular.woff') format('woff');
-// }
+@font-face {
+    font-family: 'TT Travels Text';
+    src: url('../fonts/TT_Travels_Text_Bold.woff2') format('woff2');
+    font-weight: bold;
+}
 
-// @font-face {
-//     font-family: 'Cygre';
-//     font-weight: 500;
-//     src: 
-//         url('/lpk-2025/fonts/cygre-medium.ttf') format('truetype'),
-//         url('/lpk-2025/fonts/cygre-medium.woff') format('woff');
-// }
-
-// @font-face {
-//     font-family: 'Cygre';
-//     font-weight: bold;
-//     src: 
-//         url('/lpk-2025/fonts/cygre-bold.ttf') format('truetype'),
-//         url('/lpk-2025/fonts/cygre-bold.woff') format('woff');
-// }
+$fontname: 'TT Travels Text';
 
 body{
     font-family: $fontname, 'Roboto', sans-serif;
@@ -41,18 +28,21 @@ body{
     }
 
     & h2{
-        font-size: clamp(26px, 4vw, 64px);
+        font-size: clamp(26px, 3.5vw, 64px);
         line-height: 1.4em;
+        font-weight: normal;
     }
-
+    
     & h3{
-        font-size: clamp(20px, 3vw, 40px);
-        line-height: 1.4em;
+        font-size: clamp(22px, 2.5vw, 36px);
+        line-height: 1.2em;
+        // font-weight: normal;
     }
     
     & h4{
-        font-size: clamp(16px, 3vw, 32px);
+        font-size: clamp(18px, 3vw, 32px);
         line-height: 1.4em;
+        // font-weight: normal;
     }
     
     & .small{
@@ -61,7 +51,7 @@ body{
     }
 
     & .large{
-        font-size: clamp(18px, 2vw, 32px);
-        line-height: 1.6em;
+        font-size: clamp(18px, 2vw, 28px);
+        line-height: 1.2em;
     }
 }

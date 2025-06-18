@@ -16,14 +16,13 @@ document.addEventListener('DOMContentLoaded', () => {
 	document.documentElement.scrollTop = 0;
 
 	new Lazy({}, document.querySelectorAll('.lazy'));						// Динамическая загрузка изображений
-	new Lazy({
-		callback_loaded: hideSplash
-	}, document.querySelectorAll('.lazy-video'))
 	M.Sidenav.init(document.querySelector('.sidenav'), { edge: 'right' });	// Сайднав (боковая панель навигации)
 	$('body').on('click', '.card .footer a', view3DMap);					// Просмотр 3D-карты 
 	$('body').on('click', '.faq-header', toggleFAQ);						// Отображение блоков вопрос-ответ
 	$('body').on('click', '.scroll-link', scrollTo);						// Прокрутка до заданной секции
 	$('body').on('click', '.banner-section', openBannerLink);				// Открытие ссылки в банере
+	$('body').on('click', '.feature-header', toggleFeature);
+	$('body').on('click', '.requirements-trigger', toggleRequirements);
 	
 	renderPage();															// Установка header'а
 	
@@ -42,8 +41,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	// Scroll-base анимации
 	let iconBlocks = document.querySelectorAll('#features .icon-block');
+	let aboutCards = document.querySelectorAll('#about .card');
 	
 	iconBlocks.forEach((el:HTMLElement) => {
+		let observer = new IntersectionObserver(reactIntersect, {
+			threshold: .2
+		});
+		observer.observe(el);
+	});
+	
+	aboutCards.forEach((el:HTMLElement) => {
 		let observer = new IntersectionObserver(reactIntersect, {
 			threshold: .2
 		});
@@ -54,6 +61,20 @@ document.addEventListener('DOMContentLoaded', () => {
 	let calendar = new Calendar('#calendar-output').init();					// Календарь событий
 	let calculator = new Calculator('#output').init();						// Калькулятор
 });
+
+function toggleFeature(e:JQuery.ClickEvent){
+	e.preventDefault();
+	$(e.currentTarget).toggleClass('active');
+	const $featureContent = $(e.currentTarget).next();
+	$featureContent.slideToggle();
+}
+
+function toggleRequirements(e:JQuery.ClickEvent){
+	e.preventDefault();
+	$(e.currentTarget).toggleClass('active');
+	const $requirements = $(e.target).parents('.spec-card').find('.requirements-wrapper');
+	$requirements.slideToggle('fast');
+}
 
 function openBannerLink(e:JQuery.ClickEvent){
 	e.preventDefault();
@@ -107,63 +128,24 @@ function renderPage(){
 
 	// #region Header
 	let scrollTop = document.documentElement.scrollTop;
-	let headerTop = 74 - scrollTop;
-	let percent = Math.round((scrollTop * 74) / 100);
+	let offset = window.innerWidth / 34.098;
+	let headerTop = offset - scrollTop;
+	let background = "";
+	let filter = "";
 	let header = <HTMLElement>document.querySelector('header');
-
-	if(percent > 70){
-		percent = 70;
-		// Переключаемся на тёмный текст
-		header.classList.add('dark');
-		$('#logo-text').attr('src', '/lpk-2025/img/logo_text.svg');
-		$('#logo-leaf').attr('src', '/lpk-2025/img/logo_leaf.svg');
-	}else{
-		header.classList.remove('dark');
-		$('#logo-text').attr('src', '/lpk-2025/img/logo_text_white.svg');
-		$('#logo-leaf').attr('src', '/lpk-2025/img/logo_leaf_white.svg');
-	}
 	
-	if(headerTop < 0 || window.innerWidth <= 900) headerTop = 0
+	if(headerTop < 0 || window.innerWidth <= 900){
+		headerTop = 0;
+		background = "rgba(255,255,255,.75)";
+		filter = "blur(10px)";
+	}
 	let top = `${headerTop}px`;	
 	
-	header.style.backgroundColor = `rgba(255, 255, 255, ${percent / 100})`;
 	header.style.top = top;
+	header.style.background = background;
+	header.style.backdropFilter = filter;
+	header.style['webkitBackdropFilter'] = filter;
 
-	// #endregion
-
-	// #region Timer
-	let currentDate = new Date(); // Текущая дата
-	let timerEl = <HTMLElement>document.querySelector('.timer');
-	let endDateStr = timerEl.dataset['end'];
-	let endDate = new Date(endDateStr); // Целевая дата
-
-	// Расчитываем разницу между текущей и целевой датой
-	var timeDiff = (endDate.getTime() - currentDate.getTime());
-
-	if(timeDiff <= 0){
-		// Скрываем счётчик, и отображаем уведомление о том, что приём начался
-		$('#hero').hide();
-		$('#new-hero').removeClass("hide").show();
-	}else{
-		$('#hero').show();
-		$('#new-hero').addClass("hide").hide();
-	}
-
-	// Вычисляем количество дней, часов, минут и секунд до достижения цели
-	var days = Math.floor(timeDiff / (1000 * 3600 * 24));
-	var hours = Math.floor((timeDiff % (1000 * 3600 * 24)) / (1000 * 3600));
-	var minutes = Math.floor((timeDiff % (1000 * 3600)) / 60000);
-	var seconds = Math.floor((timeDiff % 60000) / 1000);
-
-	let daysEl = <HTMLElement>document.querySelector('#d');
-	let hoursEl = <HTMLElement>document.querySelector('#h');
-	let minutesEl = <HTMLElement>document.querySelector('#m');
-	let secondsEl = <HTMLElement>document.querySelector('#s');
-
-	daysEl.textContent = addZero(days);
-	hoursEl.textContent = addZero(hours);
-	minutesEl.textContent = addZero(minutes);
-	secondsEl.textContent = addZero(seconds);
 	// #endregion
 
 	requestAnimationFrame(renderPage);
@@ -238,7 +220,7 @@ function initMap(){
 		ymaps.ready(() => {
 			
 			let map = new ymaps.Map('map', {
-				center: [45.045410, 38.930008],
+				center: [45.045700, 38.928649],
 				zoom: 17
 			})
 
@@ -246,7 +228,7 @@ function initMap(){
 
 			// Подпись к маркеру
 			let LayoutClass = ymaps.templateLayoutFactory.createClass(
-				'<p class="placemark-text">Приёмная комиссия КубГАУ</p>'
+				'<p class="placemark-text">Приёмная комиссия КУБГАУ</p>'
 			);
 
 			// Маркер института

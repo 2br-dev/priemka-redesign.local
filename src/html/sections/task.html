@@ -1,0 +1,26 @@
+			<section id="task">
+				<div class="container">
+					<div class="row flex">
+						<div class="col s12">
+							<h2>
+								Твоё первое задание как студента – подать
+								документы
+							</h2>
+						</div>
+						<div class="col l6">
+							<h3>Ты можешь сделать это</h3>
+							<div class="row">
+								<div class="col xl10 offset-xl2">
+									@@loop('../parts/icon-block.html', './data/task-ways.json')
+								</div>
+							</div>
+						</div>
+						<div class="col l6">
+							<h3>Тебе понадобятся</h3>
+							<div class="col xl10 offset-xl2">
+								@@loop('../parts/icon-block.html', './data/task-needs.json')
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>

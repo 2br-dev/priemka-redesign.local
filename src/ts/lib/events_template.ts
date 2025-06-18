@@ -1,5 +1,5 @@
 let eventsTpl=`
-<h3{{#bubble}} class="info-trigger" data-bubble="{{bubble}}"{{/bubble}}>{{title}}{{#bubble}}<sup class="bx bxs-info-circle"></sup>{{/bubble}}</h3>
+<h3{{#bubble}} class="info-trigger" data-bubble="{{bubble}}"{{/bubble}}>{{title}}<div class="bubble">{{bubble}}</div></h3>
 {{#content}}
 <div class="event">
 	<div class="event-date{{#classname}} {{classname}}{{/classname}}">

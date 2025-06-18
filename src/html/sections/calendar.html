@@ -1,0 +1,73 @@
+<section id="calendar">
+	<div class="container">
+		<div class="row flex">
+			<div class="col xl4 l5 m12">
+				<div class="pin">
+					<h2>
+						Приёмная кампания 2024 начнётся уже совсем скоро.
+					</h2>
+					<p>Заскринь график, чтобы не опоздать!</p>
+					<ul class="tabs">
+						<li class="tab active">
+							<input
+								checked
+								type="radio"
+								name="calendar"
+								value="Бакалавриат/специалитет"
+								id="bakalavr"
+							/>
+							<label for="bakalavr"
+								>Бакалавриат/специалитет</label
+							>
+						</li>
+						<li class="tab">
+							<input
+								type="radio"
+								name="calendar"
+								value="Магистратура"
+								id="magistr"
+							/>
+							<label for="magistr">Магистратура</label>
+						</li>
+						<li class="tab">
+							<input
+								type="radio"
+								name="calendar"
+								value="Аспирантура"
+								id="aspirant"
+							/>
+							<label for="aspirant">Аспирантура</label>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="col xl7 offset-xl1 l7 m12">
+				<div
+					class="calendar-wrapper"
+					data-section="Бакалавриат/специалитет"
+				>
+					<ul class="subtabs">
+						<li class="tab active">
+							<a
+								href="javascript:void(0);"
+								data-section="Бакалавриат/специалитет"
+								data-form="free"
+								>Бюджет</a
+							>
+						</li>
+						<li class="tab">
+							<a
+								href="javascript:void(0);"
+								data-section="Бакалавриат/специалитет"
+								data-form="paid"
+								>Договор
+								<i class="bx bx-ruble"></i
+							></a>
+						</li>
+					</ul>
+					<div id="calendar-output"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

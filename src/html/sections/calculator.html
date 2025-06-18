@@ -1,0 +1,83 @@
+			<section id="calculator">
+				<div class="container">
+					<div class="row">
+						<div class="col">
+							<h2>Узнай, куда поступишь на бюджет!</h2>
+							<div
+								class="calculator-app"
+								data-level="Бакалавриат/специалитет"
+							>
+								<div class="calculator-head">
+									<ul class="pseudo-tabs">
+										<li class="pseudo-tab active">
+											<input
+												type="radio"
+												name="level"
+												id="l1"
+												checked
+												value="Бакалавриат/специалитет"
+											/>
+											<label for="l1"
+												>Бакалавриат/специалитет</label
+											>
+										</li>
+										<li class="pseudo-tab">
+											<input
+												type="radio"
+												name="level"
+												id="l2"
+												value="Магистратура"
+											/>
+											<label for="l2">Магистратура</label>
+										</li>
+										<li class="pseudo-tab disabled">
+											<!-- <input type="radio" name="level" id="l3" value="Аспирантура"> -->
+											<label for="l3">Аспирантура</label>
+										</li>
+									</ul>
+									<div class="quick-search">
+										<input
+											type="search"
+											name="search"
+											placeholder="Поиск"
+										/>
+									</div>
+								</div>
+								<div class="calculator-body">
+									<input
+										type="search"
+										name="search"
+										placeholder="Поиск"
+										class="mobile-search"
+									/>
+									<p class="mt0 fogged intro">
+										Выбери свои предметы ЕГЭ (минимум 3) и
+										нажми «Применить». Или воспользуйся
+										Поиском, если точно знаешь, что искать
+									</p>
+									<div class="tags">
+										@@loop('../parts/eg.html',
+										'./data/tags.json')
+									</div>
+									<div class="actions">
+										<a
+											href="javascript:void(0);"
+											id="calc-reset"
+											class="bttn-outline"
+											>Сброс</a
+										>
+										<a
+											href="javascript:void(0);"
+											id="calc-apply"
+											class="bttn"
+											>Применить</a
+										>
+									</div>
+									<h3>Факультеты:</h3>
+									<div id="output"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>

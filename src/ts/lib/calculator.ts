@@ -191,7 +191,7 @@ class Calculator{
 		$('.form-switcher a').removeClass('selected');
 		$(el).addClass('selected');
 
-		$('.Speciality-data-wrapper').html(output);
+		$('.speciality-data-wrapper').html(output);
 	}
 
 	/**
@@ -201,7 +201,7 @@ class Calculator{
 		let path = Array.from(e.originalEvent?.composedPath());
 		let filteredNodes = path.filter((el:HTMLElement) => {
 			if(el.classList){
-				return el.classList.contains("Faculty-modal");
+				return el.classList.contains("faculty-modal");
 			}
 		})
 		if(!filteredNodes.length){
@@ -406,7 +406,7 @@ class Calculator{
 
 		document.querySelectorAll('.faculty-header').forEach((headerEl:Element) => {
 			let header = <HTMLElement>headerEl;
-			if(header.nextElementSibling?.className == 'Faculty-header') header.remove();
+			if(header.nextElementSibling?.className == 'faculty-header') header.remove();
 		})
 
 		document.querySelectorAll('.spec-card').forEach((cardEl:Element) => {
@@ -459,8 +459,8 @@ class Calculator{
 				let paidValue = card.querySelector('.number-paid .number-value');
 	
 				if(freeValue && paidValue){
-					freeValue.textContent = freeVacations.toString();
-					paidValue.textContent = paidVacations.toString();
+					freeValue.textContent = (freeVacations == null ? 0 : freeVacations).toString();
+					paidValue.textContent = (paidVacations == null ? 0 : paidVacations).toString();
 				}
 			}
 		})
@@ -503,6 +503,8 @@ class Calculator{
 
 		if(!fast){
 			$('.section-wrapper').slideDown();
+			$('.requirements-wrapper').slideDown();
+			$('.requirements-trigger').addClass('active');
 			$('.faculty-header').addClass('active');
 		}
 	}
@@ -555,9 +557,9 @@ class Calculator{
 
 		if(!numberFree || !numberPaid || !duration) return;
 
-		numberFree.textContent = form.Vacations.Free.Total.toString();
-		numberPaid.textContent = form.Vacations.Paid.Total.toString();
-		duration.textContent = form.Duration.toString();
+		numberFree.textContent = (form.Vacations.Free.Total || 0).toString();
+		numberPaid.textContent = (form.Vacations.Paid.Total || 0).toString();
+		duration.textContent = (form.Duration || 0).toString();
 
 		if(!form.Remark){
 			price.textContent = form.Price.toString() + " ₽/год";
@@ -628,10 +630,20 @@ class Calculator{
 		
 		let section:ISection = {
 			Name: "",
+			CardsAmount: 0,
+			CardsUnits: "",
 			SectionContent: []
 		};
 
 		data.Elements.forEach((card:ICardData) => {
+
+			if(card.Requirements){
+				if(card.Requirements.length > 0 && card.SelectedFormName != "Магистратура"){
+					card.RequirementsExists = true
+				}else{
+					card.RequirementsExists = false
+				}
+			}
 
 			let formName = this.filterParams.level == "Бакалавриат/специалитет" ?  card.Education_levels?.filter((l:IEducationLevel) => {
 				return l.Name == "Бакалавриат" || l.Name == "Специалитет";
@@ -664,13 +676,18 @@ class Calculator{
 				if(section.Name == ""){
 					section = {
 						Name: card.Faculty.Name,
+						CardsAmount: 0,
+						CardsUnits: "",
 						SectionContent: []
 					}
 				}else{
 					if(section.Name != card.Faculty.Name){
+						section.CardsUnits = this.num_word(section.CardsAmount, ["направление", "направления", "направлений"]);
 						preparedData.Sections.push(section);
 						section = {
 							Name: card.Faculty.Name,
+							CardsAmount: 0,
+							CardsUnits: "",
 							SectionContent: []
 						}
 					}
@@ -685,10 +702,12 @@ class Calculator{
 				card.Necessary = necessary;
 				card.Optional = optional;
 				section.SectionContent.push(card);
+				section.CardsAmount++;
 			}
 		});
 
 		// if(preparedData.sections.length == 0 && section.sectionContent.length > 0){
+			section.CardsUnits = this.num_word(section.CardsAmount, ["направление", "направления", "направлений"]);
 			preparedData.Sections.push(section);
 		// }
 
@@ -760,7 +779,7 @@ class Calculator{
 			history.scrollRestoration = 'manual';
 			let Faculty = this.selectedCase.Faculty.Name;
 
-			let element = $(`[data-Faculty='${Faculty}']`);
+			let element = $(`[data-faculty='${Faculty}']`);
 			let top = element.offset().top;
 			let content = element.next();
 			content.show();
@@ -874,6 +893,15 @@ class Calculator{
 			}
 
 		}
+	}
+
+	num_word(value:number, words:Array<string>):string{
+		value = Math.abs(value) % 100; 
+		var num = value % 10;
+		if(value > 10 && value < 20) return words[2]; 
+		if(num > 1 && num < 5) return words[1];
+		if(num == 1) return words[0]; 
+		return words[2];
 	}
 }
 

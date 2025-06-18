@@ -51,6 +51,7 @@ export interface ICardData{
 	NoDetails?: boolean | true,
 	Education_levels?: Array<IEducationLevel>,
 	Requirements?: Array<IRequirement>,
+	RequirementsExists?: boolean,
 	Necessary?:Array<IRequirement>,
 	Optional?:Array<IRequirement>,
 	Price?: number,
@@ -67,6 +68,8 @@ export interface IData{
 
 export interface ISection{
 	Name: string,
+	CardsAmount: number,
+	CardsUnits: string,
 	SectionContent: ICardData[];
 }
 

@@ -15591,6 +15591,8 @@ body main section#map-section .placemark-text {
 
 .faculty-modal-wrapper .faculty-modal .faculty-modal-body .content-wrapper .faculty .head-info-wrapper .head-image img {
     display: block;
+    border-top-right-radius: clamp(12px, 2vw, 32px);
+    border-bottom-left-radius: clamp(12px, 2vw, 32px);
 }
 
 .faculty-modal-wrapper .faculty-modal .faculty-modal-body .content-wrapper .faculty .head-info-wrapper .head-data p {

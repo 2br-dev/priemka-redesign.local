@@ -2130,9 +2130,11 @@ body {
 
 						& .head-image {
 							margin-right: 20px;
-
+							
 							& img {
 								display: block;
+								border-top-right-radius: clamp(12px, 2vw, 32px);
+								border-bottom-left-radius: clamp(12px, 2vw, 32px);
 							}
 						}
 

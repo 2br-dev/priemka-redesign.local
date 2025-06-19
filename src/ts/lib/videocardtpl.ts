@@ -3,7 +3,7 @@ let videocard_tpl = `
 	<div class="faculty-modal">
 		<div class="faculty-modal-body">
 			<button class="faculty-modal-close bx bx-x"></button>
-			<video src="/lpk-2025/video{{selectedLevel.video}}" controls class="responsive-video" />
+			<video src="lpk-2025/video{{selectedLevel.video}}" controls class="responsive-video" />
 		</div>
 	</div>
 </div>

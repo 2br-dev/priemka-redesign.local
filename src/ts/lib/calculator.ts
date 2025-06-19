@@ -36,7 +36,7 @@ class Calculator{
 	}
 
 	init(){
-		fetch('/lpk-2025/data/data.json')
+		fetch('../lpk-2025/data/data.json')
 		.then(response => response.json())
 		.then(data => {
 			let filteredData = this.filter(data);

@@ -170,7 +170,9 @@ body {
 				.cards-grid{
 					display: grid;
 					grid-template-columns: repeat(4, 1fr);
+					border-radius: $radius;
 					max-width: 100%;
+					overflow: hidden;
 
 					& .card{
 						width: 100%;
@@ -217,19 +219,15 @@ body {
 							background-image: url('../img/map.jpg');
 							background-size: cover;
 							background-position: center center;
-							border-top-left-radius: $radius;
 						}
 
 						&#territory-text{
 							padding: $padding;
 							background-color: #F8F8F8;
-							border-bottom-right-radius: $radius;
 						}
 						
 						&#sport{
 							padding: $padding;
-							border-top-right-radius: $radius;
-							border-bottom-left-radius: $radius;
 							background-image: url('../img/basketball-field.svg'), radial-gradient(circle at top right, #C3E719, #A0D902);
 							background-repeat: no-repeat, repeat;
 							background-position: bottom center, center center;
@@ -244,8 +242,6 @@ body {
 							padding: $padding;
 							background-color: $primary;
 							color: #fff;
-							border-top-right-radius: $radius;
-							border-bottom-left-radius: $radius;
 						}
 						
 						&#digilab-text{
@@ -253,31 +249,27 @@ body {
 							padding: $padding;
 							color: #fff;
 							background-image: url('../img/noise.png');
-							border-bottom-left-radius: $radius;
 							
 						}
 						
 						&#digilab-image{
-							border-top-right-radius: $radius;
 							overflow: hidden;
 							& video{
-								width: 80px;
-								height: 80px;
-								min-width: 100%;
-								min-height: 100%;
+								width: calc(100% + 2px);
+								height: calc(100% + 2px);
 								display: block;
+								object-fit: cover;
+								border: 0;
 							}
 						}
 
 						&#park-image{
-							border-bottom-left-radius: $radius;
 							background-image: url('../img/park.jpg');
 							background-size: cover;
 						}
 						
 						&#park-text{
 							padding: $padding;
-							border-top-right-radius: $radius;
 							background-color: #F8F8F8;
 
 							& h3{
@@ -306,33 +298,14 @@ body {
 							aspect-ratio: unset;
 							min-height: 250px;
 
-							&#digilab-text{
-								border-top-left-radius: $radius;
-								border-top-right-radius: 0;
-								border-bottom-left-radius: 0;
-								border-bottom-right-radius: 0;
-							}
-
-							&#digilab-image{
-								border-top-right-radius: 0;
-								border-bottom-right-radius: $radius;
-							}
-
 							&#sport{
 								background-position: bottom -4vmax center, top right;
-							}
-
-							&#park-image{
-								border-bottom-left-radius: 0;
-								border-top-right-radius: $radius;
 							}
 
 							&#park-text,
 							&#territory-text
 							{
 								min-height: unset;
-								border-top-right-radius: 0;
-								border-bottom-left-radius: $radius;
 
 								& h3, & p{
 									text-align: left;
@@ -976,8 +949,7 @@ body {
 									text-align: center;
 									font-size: 12px;
 									color: #808080;
-									border-left: 4px solid $primary;
-									display: none;
+									border-left: 4px solid $secondary;
 								}
 
 								& .card-call2action {
@@ -1873,6 +1845,7 @@ body {
 
 					@media (max-width: 1200px) {
 						grid-template-columns: 5fr 7fr;
+						width: 100%;
 					}
 
 					@media (max-width: 800px) {
@@ -1890,6 +1863,8 @@ body {
 					& p {
 						font-size: 12px;
 						line-height: 1.4em;
+						display: block;
+						max-width: 400px;
 					}
 				}
 

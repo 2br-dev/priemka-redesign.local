@@ -73,7 +73,7 @@ let template = `
 			</div>
 			{{#Note}}
 			<div class="note">
-			{{.}}
+			{{Note}}
 			</div>
 			{{/Note}}
 			<div class="card-call2action" data-form-c2a="{{SelectedFormName}}">

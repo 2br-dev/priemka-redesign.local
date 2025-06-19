@@ -13489,7 +13489,9 @@ body main section#about h2, body main section#about p {
 body main section#about .cards-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    border-radius: clamp(20px, 4vw, 80px);
     max-width: 100%;
+    overflow: hidden;
 }
 
 body main section#about .cards-grid .card {
@@ -13568,19 +13570,15 @@ body main section#about .cards-grid .card#territory-image {
     background-image: url("../img/map.jpg");
     background-size: cover;
     background-position: center center;
-    border-top-left-radius: clamp(20px, 4vw, 80px);
 }
 
 body main section#about .cards-grid .card#territory-text {
     padding: clamp(10px, 1.5vw, 30px);
     background-color: #F8F8F8;
-    border-bottom-right-radius: clamp(20px, 4vw, 80px);
 }
 
 body main section#about .cards-grid .card#sport {
     padding: clamp(10px, 1.5vw, 30px);
-    border-top-right-radius: clamp(20px, 4vw, 80px);
-    border-bottom-left-radius: clamp(20px, 4vw, 80px);
     background-image: url("../img/basketball-field.svg"), radial-gradient(circle at top right, #C3E719, #A0D902);
     background-repeat: no-repeat, repeat;
     background-position: bottom center, center center;
@@ -13595,8 +13593,6 @@ body main section#about .cards-grid .card#teachers {
     padding: clamp(10px, 1.5vw, 30px);
     background-color: #0E5A67;
     color: #fff;
-    border-top-right-radius: clamp(20px, 4vw, 80px);
-    border-bottom-left-radius: clamp(20px, 4vw, 80px);
 }
 
 body main section#about .cards-grid .card#digilab-text {
@@ -13604,31 +13600,28 @@ body main section#about .cards-grid .card#digilab-text {
     padding: clamp(10px, 1.5vw, 30px);
     color: #fff;
     background-image: url("../img/noise.png");
-    border-bottom-left-radius: clamp(20px, 4vw, 80px);
 }
 
 body main section#about .cards-grid .card#digilab-image {
-    border-top-right-radius: clamp(20px, 4vw, 80px);
     overflow: hidden;
 }
 
 body main section#about .cards-grid .card#digilab-image video {
-    width: 80px;
-    height: 80px;
-    min-width: 100%;
-    min-height: 100%;
+    width: calc(100% + 2px);
+    height: calc(100% + 2px);
     display: block;
+    -o-object-fit: cover;
+    object-fit: cover;
+    border: 0;
 }
 
 body main section#about .cards-grid .card#park-image {
-    border-bottom-left-radius: clamp(20px, 4vw, 80px);
     background-image: url("../img/park.jpg");
     background-size: cover;
 }
 
 body main section#about .cards-grid .card#park-text {
     padding: clamp(10px, 1.5vw, 30px);
-    border-top-right-radius: clamp(20px, 4vw, 80px);
     background-color: #F8F8F8;
 }
 
@@ -13663,31 +13656,12 @@ body main section#about .cards-grid .card#park-text p {
         min-height: 250px;
     }
 
-    body main section#about .cards-grid .card#digilab-text {
-        border-top-left-radius: clamp(20px, 4vw, 80px);
-        border-top-right-radius: 0;
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
-    }
-
-    body main section#about .cards-grid .card#digilab-image {
-        border-top-right-radius: 0;
-        border-bottom-right-radius: clamp(20px, 4vw, 80px);
-    }
-
     body main section#about .cards-grid .card#sport {
         background-position: bottom -4vmax center, top right;
     }
 
-    body main section#about .cards-grid .card#park-image {
-        border-bottom-left-radius: 0;
-        border-top-right-radius: clamp(20px, 4vw, 80px);
-    }
-
     body main section#about .cards-grid .card#park-text, body main section#about .cards-grid .card#territory-text {
         min-height: unset;
-        border-top-right-radius: 0;
-        border-bottom-left-radius: clamp(20px, 4vw, 80px);
     }
 
     body main section#about .cards-grid .card#park-text h3, body main section#about .cards-grid .card#park-text p, body main section#about .cards-grid .card#territory-text h3, body main section#about .cards-grid .card#territory-text p {
@@ -14397,8 +14371,7 @@ body main section#calculator .calculator-app .calculator-body #output .spec-card
     text-align: center;
     font-size: 12px;
     color: #808080;
-    border-left: 4px solid #0E5A67;
-    display: none;
+    border-left: 4px solid #9DD800;
 }
 
 body main section#calculator .calculator-app .calculator-body #output .spec-card .card-call2action {
@@ -15275,6 +15248,7 @@ body main section#contacts .contacts-wrapper {
 @media (max-width: 1200px) {
     body main section#contacts .contacts-wrapper {
         grid-template-columns: 5fr 7fr;
+        width: 100%;
     }
 }
 
@@ -15297,6 +15271,8 @@ body main section#contacts .contact {
 body main section#contacts .contact p {
     font-size: 12px;
     line-height: 1.4em;
+    display: block;
+    max-width: 400px;
 }
 
 body main section#contacts .time-wrapper {

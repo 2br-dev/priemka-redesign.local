@@ -117,7 +117,7 @@ let fullcard_tpl = `
 						</div>
 						<div class="head-data">
 							<p>{{Extra.Head.rank}}</p>
-							<p class="name">{{Extra.Head.last_name}} {{Extra.Head.First_name}} {{Extra.Head.Middle_name}}</p>
+							<p class="name">{{Extra.Head.Last_name}} {{Extra.Head.First_name}} {{Extra.Head.Middle_name}}</p>
 							<p class="regalia">{{Extra.Head.Regalia}}</p>
 						</div>
 					</div>

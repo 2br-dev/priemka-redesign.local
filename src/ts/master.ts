@@ -234,7 +234,7 @@ function initMap(){
 			// Маркер института
 			let facultyMarker = new ymaps.Placemark([45.046726, 38.928506]);
 			facultyMarker.options.set('iconLayout', 'default#imageWithContent');
-			facultyMarker.options.set('iconImageHref', '/lpk-2025/img/faculty_marker.svg')
+			facultyMarker.options.set('iconImageHref', './lpk-2025/img/faculty_marker.svg')
 			facultyMarker.options.set('iconImageSize', [60, 72]);
 			facultyMarker.options.set('iconImageOffset', [-30, -72])
 			facultyMarker.options.set('iconContentLayout', LayoutClass);
@@ -251,7 +251,7 @@ function initMap(){
 			// Маркер парковки
 			let parkingMarker = new ymaps.Placemark([45.044483, 38.928892]);
 			parkingMarker.options.set('iconLayout', 'default#image');
-			parkingMarker.options.set('iconImageHref', '/lpk-2025/img/parking_marker.svg')
+			parkingMarker.options.set('iconImageHref', './lpk-2025/img/parking_marker.svg')
 			parkingMarker.options.set('iconImageSize', [40, 64]);
 			parkingMarker.options.set('iconImageOffset', [-20, -64])
 			map.geoObjects.add(parkingMarker);

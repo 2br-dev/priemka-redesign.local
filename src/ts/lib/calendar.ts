@@ -21,7 +21,7 @@ class Calendar{
 
 	init(){
 		// Загрузка начальных данных
-		fetch("../lpk-2025/data/events.json")
+		fetch("./lpk-2025/data/events.json")
 		.then(res => res.json())
 		.then((data:IEventsData) => {
 			this.eventsData = data;

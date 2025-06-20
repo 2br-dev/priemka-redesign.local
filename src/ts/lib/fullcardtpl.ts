@@ -113,7 +113,7 @@ let fullcard_tpl = `
 					<p class="modal-section-header">О факультете</p>
 					<div class="head-info-wrapper">
 						<div class="head-image">
-							<img src="lpk-2025/img/faculty_media/decans/{{Extra.Head.Photo}}">
+							<img src="./lpk-2025/img/faculty_media/decans/{{Extra.Head.Photo}}">
 						</div>
 						<div class="head-data">
 							<p>{{Extra.Head.rank}}</p>

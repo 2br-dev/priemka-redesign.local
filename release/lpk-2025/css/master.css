@@ -14524,6 +14524,11 @@ body main section#phone .phone-baner .large {
 
 body main section#calendar h2 {
     line-height: 1.2em;
+    margin: 0;
+}
+
+body main section#calendar h2 ~ p {
+    margin-bottom: 3em;
 }
 
 body main section#calendar .tabs {

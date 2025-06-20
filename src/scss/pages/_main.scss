@@ -1134,6 +1134,11 @@ body {
 
 				& h2{
 					line-height: 1.2em;
+					margin: 0;
+
+					& ~ p{
+						margin-bottom: 3em;
+					}
 				}
 
 				& .tabs{

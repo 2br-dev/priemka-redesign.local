@@ -1,7 +1,7 @@
 let fullcard_tpl = `
 <div class="faculty-modal-wrapper">
 	<div class="faculty-modal">
-		<div class="faculty-modal-header" style="background-image:url(/lpk-2025/img/faculty_media/wallpapers/{{SelectedLevel.Details.Image}})">
+		<div class="faculty-modal-header" style="background-image:url('./lpk-2025/img/faculty_media/wallpapers/{{SelectedLevel.Details.Image}}')">
 			<div class="label">{{SelectedLevel.Name}}</div>
 			<div class="header-info">
 				<div class="info-top">

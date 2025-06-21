@@ -11,9 +11,6 @@ let template = `
 	<div class="section-content">
 	{{#SectionContent}}
 	<div class="spec-card-wrapper">
-	{{#Label}}
-	<div class="spec-card-label"><span>{{Label}}</span></div>
-	{{/Label}}
 	<div class="spec-card hoverable z-depth-1" data-id="{{Id}}" data-faculty="{{Faculty.Name}}" data-no-data="{{NoDetails}}" >
 		<div class="card-content">
 			<div class="card-top">
@@ -30,6 +27,9 @@ let template = `
 			</div>
 			<div class="title"><h4 class="no-margin">{{Speciality}}</h4></div>
 			<div class="subtitle"><span class="code">{{Education_levels.0.Code}}</span> {{Profile}}</div>
+			{{#Label}}
+			<div class="spec-card-label"><span>{{Label}}</span></div>
+			{{/Label}}
 			<div class="numbers">
 				<div class="number number-free">
 					<div class="section-title">Бюджетныx</div>
@@ -80,7 +80,12 @@ let template = `
 				{{#RequirementsExists}}
 				<a class="bttn-flat requirements-trigger" href="#!"><span class="hide-m-down">Результаты </span>ЕГЭ</a>
 				{{/RequirementsExists}}
+				{{#ExternalLink}}
+				<a class="bttn" target="_blank" rel="nofollow" href="{{ExternalLink}}">Подробнее</a>
+				{{/ExternalLink}}
+				{{^ExternalLink}}
 				<span class="bttn">Подробнее</span>
+				{{/ExternalLink}}
 				{{#SelectedLevel.Video}}
 				<a class="bttn video-trigger" href="#video" data-video="{{SelectedLevel.Video}}"><i class="bx bx-play" ></i><span>Видео</span></a>
 				{{/SelectedLevel.Video}}

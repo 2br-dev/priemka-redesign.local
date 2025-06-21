@@ -13394,7 +13394,7 @@ footer a.bttn-outline:before, footer body main section#calendar .event .event-da
     display: inline-block;
     aspect-ratio: 1/1;
     margin-right: 6px;
-    background-image: url(./lpk-2025/img/gerb.svg);
+    background-image: url("../img/gerb.svg");
     transform: translateY(0.5em);
 }
 
@@ -13990,7 +13990,7 @@ body main section#calculator .calculator-app .calculator-body .tags .tag.active 
 
 body main section#calculator .calculator-app .calculator-body .tags .tag.active:before, body main section#calculator .calculator-app .calculator-body .tags section#calendar .event .event-date .tag.active.date:after, body main section#calendar .event .event-date section#calculator .calculator-app .calculator-body .tags .tag.active.date:after {
     background-color: #FF6C00;
-    background-image: url(./lpk-2025/img/check.svg);
+    background-image: url("../img/check.svg");
     background-position: center center;
     background-repeat: no-repeat;
 }
@@ -14088,7 +14088,7 @@ body main section#calculator .calculator-app .calculator-body #output .faculty-h
     height: 100%;
     top: 0;
     left: 0;
-    background-image: url(./lpk-2025/img/folder_arrow.svg);
+    background-image: url("../img/folder_arrow.svg");
     background-position: center center;
     background-repeat: no-repeat;
     border-radius: 50%;
@@ -14109,35 +14109,9 @@ body main section#calculator .calculator-app .calculator-body #output .spec-card
 }
 
 body main section#calculator .calculator-app .calculator-body #output .spec-card-wrapper .spec-card-label {
-    position: absolute;
-    line-height: 34px;
-    right: -5px;
-    top: clamp(5px, 2vw, 20px);
-    display: flex;
-    align-items: flex-end;
-    font-size: clamp(12px, 2vw, 18px);
-}
-
-body main section#calculator .calculator-app .calculator-body #output .spec-card-wrapper .spec-card-label span {
-    padding: 0 10px;
-    background-color: #FF6C00;
+    background-color: #9DD800;
     color: #fff;
-}
-
-body main section#calculator .calculator-app .calculator-body #output .spec-card-wrapper .spec-card-label:before, body main section#calculator .calculator-app .calculator-body #output .spec-card-wrapper section#calendar .event .event-date .spec-card-label.date:after, body main section#calendar .event .event-date section#calculator .calculator-app .calculator-body #output .spec-card-wrapper .spec-card-label.date:after {
-    content: "";
-    display: block;
-    height: 34px;
-    width: 19px;
-    background-image: url(./lpk-2025/img/labe_before.svg);
-}
-
-body main section#calculator .calculator-app .calculator-body #output .spec-card-wrapper .spec-card-label:after {
-    content: "";
-    display: block;
-    height: 40px;
-    width: 5px;
-    background-image: url(./lpk-2025/img/labe_after.svg);
+    text-align: center;
 }
 
 body main section#calculator .calculator-app .calculator-body #output .spec-card {
@@ -14293,6 +14267,10 @@ body main section#calculator .calculator-app .calculator-body #output .spec-card
     border-left: 4px solid #9DD800;
     gap: 10px;
     box-sizing: border-box;
+}
+
+body main section#calculator .calculator-app .calculator-body #output .spec-card .numbers .number {
+    flex-grow: 1;
 }
 
 body main section#calculator .calculator-app .calculator-body #output .spec-card .numbers .number .section-title {
@@ -14925,7 +14903,7 @@ body main section#bank .big-card .bank-bttn {
 
 body main section#bank .big-card .bank-bttn#sber {
     background-color: #21a038;
-    background-image: url(./lpk-2025/img/logo_sber.svg);
+    background-image: url("../img/logo_sber.svg");
 }
 
 body main section#bank .big-card .bank-bttn#sber:hover {
@@ -14934,7 +14912,7 @@ body main section#bank .big-card .bank-bttn#sber:hover {
 
 body main section#bank .big-card .bank-bttn#rnkb {
     background-color: #333e48;
-    background-image: url(./lpk-2025/img/logo_rnkb.svg);
+    background-image: url("../img/logo_rnkb.svg");
 }
 
 body main section#bank .big-card .bank-bttn#rnkb:hover {
@@ -15164,7 +15142,7 @@ body main section#faq .faq-entry .faq-header .folder-arrow:before, body main sec
     right: 0;
     bottom: 0;
     border-radius: 50%;
-    background-image: url(./lpk-2025/img/folder_arrow.svg);
+    background-image: url("../img/folder_arrow.svg");
     background-position: center center;
     background-size: 50% auto;
     background-repeat: no-repeat;

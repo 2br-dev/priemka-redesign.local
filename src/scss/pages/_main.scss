@@ -606,7 +606,7 @@ body {
 
 									&:before {
 										background-color: $accent;
-										background-image: url(./lpk-2025/img/check.svg);
+										background-image: url('../img/check.svg');
 										background-position: center center;
 										background-repeat: no-repeat;
 									}
@@ -704,7 +704,7 @@ body {
 										height: 100%;
 										top: 0;
 										left: 0;
-										background-image: url(./lpk-2025/img/folder_arrow.svg);
+										background-image: url('../img/folder_arrow.svg');
 										background-position: center center;
 										background-repeat: no-repeat;
 										border-radius: 50%;
@@ -726,35 +726,9 @@ body {
 								position: relative;
 
 								& .spec-card-label {
-									position: absolute;
-									line-height: 34px;
-									right: -5px;
-									top: clamp(5px, 2vw, 20px);
-									display: flex;
-									align-items: flex-end;
-									font-size: clamp(12px, 2vw, 18px);
-
-									& span {
-										padding: 0 10px;
-										background-color: $accent;
-										color: #fff;
-									}
-
-									&:before {
-										content: "";
-										display: block;
-										height: 34px;
-										width: 19px;
-										background-image: url(./lpk-2025/img/labe_before.svg);
-									}
-
-									&:after {
-										content: "";
-										display: block;
-										height: 40px;
-										width: 5px;
-										background-image: url(./lpk-2025/img/labe_after.svg);
-									}
+									background-color: $secondary;
+									color: #fff;
+									text-align: center;
 								}
 							}
 
@@ -917,6 +891,7 @@ body {
 									box-sizing: border-box;
 
 									& .number {
+										flex-grow: 1;
 
 										& .section-title {
 											font-size: clamp(10px, 2vw, 12px);
@@ -1525,7 +1500,7 @@ body {
 
 						&#sber {
 							background-color: #21a038;
-							background-image: url(./lpk-2025/img/logo_sber.svg);
+							background-image: url('../img/logo_sber.svg');
 
 							&:hover {
 								background-color: lighten(#21a038, 10);
@@ -1534,7 +1509,7 @@ body {
 
 						&#rnkb {
 							background-color: #333e48;
-							background-image: url(./lpk-2025/img/logo_rnkb.svg);
+							background-image: url('../img/logo_rnkb.svg');
 
 							&:hover {
 								background-color: lighten(#333e48, 10);
@@ -1761,7 +1736,7 @@ body {
 								right: 0;
 								bottom: 0;
 								border-radius: 50%;
-								background-image: url(./lpk-2025/img/folder_arrow.svg);
+								background-image: url('../img/folder_arrow.svg');
 								background-position: center center;
 								background-size: 50% auto;
 								background-repeat: no-repeat;

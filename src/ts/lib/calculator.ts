@@ -173,8 +173,9 @@ class Calculator{
 		let el = <HTMLElement>e.currentTarget;
 		let formName = el.textContent;
 
+		let levelName = this.selectedCase.SelectedLevel?.Name;
 		let level:IEducationLevel = this.selectedCase.Education_levels?.filter((l:IEducationLevel) => {
-			return l.Name = this.selectedCase.SelectedLevel?.Name;
+			return l.Name == levelName;
 		})[0];
 
 		if(!level.Forms){
@@ -722,13 +723,13 @@ class Calculator{
 
 		// let selectedCase:ICardData;
 		let card:HTMLElement;
+		debugger;
 		
 		if(!URLParams){
 			
 			if(!historyCase){
 
 				card = e.currentTarget;
-				e.preventDefault();
 			
 				// Прерываем выполнение если клик происходит по интерактивному элементу внутри карточки
 				let path = Array.from(e.originalEvent?.composedPath());
@@ -741,6 +742,7 @@ class Calculator{
 				});
 			
 				if(links.length) return;
+				e.preventDefault();
 	
 				// Закрываем remark-popup если он был открыт
 				let remarkPopup = <HTMLElement>card.querySelector('.remark-popup');
@@ -787,13 +789,14 @@ class Calculator{
 		}
 
 		// Выбранный уровень образования
+		let selectedLevel = this.filterParams.level;
 		if(!historyCase){
 			if(!URLParams){
 				this.selectedCase.SelectedLevel = this.selectedCase.Education_levels.filter((l:IEducationLevel) => {
-					if(this.filterParams.level == "Бакалавриат/специалитет"){
+					if(selectedLevel == "Бакалавриат/специалитет"){
 						return l.Name == "Бакалавриат" || l.Name == "Специалитет"
 					}else{
-						return l.Name === this.filterParams.level;
+						return l.Name === selectedLevel;
 					}
 				})[0];
 			}else{

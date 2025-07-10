@@ -129,7 +129,7 @@ let fullcard_tpl = `
 		</div>
 		<div class="faculty-modal-footer">
 			<div class="social">
-				<p class="section-header">Больше о факультете</p>
+				<p class="section-header">Контакты приёмной комиссии</p>
 				<p>
 				{{#Extra.networks}}
 				<a target="_blank" rel="nofollow" class="social-icon {{icon}}" href="{{link}}"></a>
@@ -137,7 +137,6 @@ let fullcard_tpl = `
 				</p>
 			</div>
 			<div class="contacts">
-				<p class="section-header">Контакты приёмной комиссии</p>
 				<div class="contacts-wrapper">
 					<div class="contacts-block">
 						<div class="contacts-title">«Горячая линия» по вопросам поступления</div>

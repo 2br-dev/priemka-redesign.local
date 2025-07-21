@@ -80,12 +80,7 @@ let template = `
 				{{#RequirementsExists}}
 				<a class="bttn-flat requirements-trigger" href="#!"><span class="hide-m-down">Результаты </span>ЕГЭ</a>
 				{{/RequirementsExists}}
-				{{#ExternalLink}}
-				<a class="bttn" target="_blank" rel="nofollow" href="{{ExternalLink}}">Подробнее</a>
-				{{/ExternalLink}}
-				{{^ExternalLink}}
 				<span class="bttn">Подробнее</span>
-				{{/ExternalLink}}
 				{{#SelectedLevel.Video}}
 				<a class="bttn video-trigger" href="#video" data-video="{{SelectedLevel.Video}}"><i class="bx bx-play" ></i><span>Видео</span></a>
 				{{/SelectedLevel.Video}}

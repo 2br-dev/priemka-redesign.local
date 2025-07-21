@@ -1,26 +1,26 @@
 [
 	{
-		"icon": "./lpk-2025/img/icons/passport.png",
+		"icon": "./lpk-2025/img/icons/passport.webp",
 		"header": "Паспорт",
 		"description": "Паспорт гражданина Российской Федерации"
 	},
 	{
-		"icon": "./lpk-2025/img/icons/docs.png",
+		"icon": "./lpk-2025/img/icons/docs.webp",
 		"header": "Документы об образовании",
 		"description": "Аттестат или диплом"
 	},
 	{
-		"icon": "./lpk-2025/img/icons/snils.png",
+		"icon": "./lpk-2025/img/icons/snils.webp",
 		"header": "СНИЛС",
 		"description": "Страховой номер индивидуального лицевого счёта"
 	},
 	{
-		"icon": "./lpk-2025/img/icons/photo.png",
+		"icon": "./lpk-2025/img/icons/photo.webp",
 		"header": "Фотографии",
 		"description": "Фотокарточки 3х4 см (4 шт.)"
 	},
 	{
-		"icon": "./lpk-2025/img/icons/spravka.png",
+		"icon": "./lpk-2025/img/icons/spravka.webp",
 		"header": "Справка",
 		"description": "Медицинская справка по форме 086/У"
 	}

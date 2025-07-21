@@ -13567,7 +13567,7 @@ body main section#about .cards-grid .card p {
 }
 
 body main section#about .cards-grid .card#territory-image {
-    background-image: url("../img/map.jpg");
+    background-image: url("../img/map.webp");
     background-size: cover;
     background-position: center center;
 }
@@ -13599,7 +13599,7 @@ body main section#about .cards-grid .card#digilab-text {
     background-color: #0D191D;
     padding: clamp(10px, 1.5vw, 30px);
     color: #fff;
-    background-image: url("../img/noise.png");
+    background-image: url("../img/noise.webp");
 }
 
 body main section#about .cards-grid .card#digilab-image {
@@ -13616,7 +13616,7 @@ body main section#about .cards-grid .card#digilab-image video {
 }
 
 body main section#about .cards-grid .card#park-image {
-    background-image: url("../img/park.jpg");
+    background-image: url("../img/park.webp");
     background-size: cover;
 }
 
@@ -14112,6 +14112,8 @@ body main section#calculator .calculator-app .calculator-body #output .spec-card
     background-color: #9DD800;
     color: #fff;
     text-align: center;
+    padding: 10px;
+    font-weight: bold;
 }
 
 body main section#calculator .calculator-app .calculator-body #output .spec-card {
@@ -14465,7 +14467,7 @@ body main section#phone .phone-baner {
     overflow: hidden;
     cursor: pointer;
     background-color: #4a87b6;
-    background-image: url("../img/phone.jpg");
+    background-image: url("../img/phone.webp");
     color: #fff;
     background-size: cover;
     background-position: bottom right;
@@ -14768,7 +14770,7 @@ body main section#bank:before, body main section#calendar .event .event-date sec
     display: block;
     width: 70%;
     height: 100%;
-    background-image: url("../img/banking-sky.jpg");
+    background-image: url("../img/banking-sky.webp");
     background-size: cover;
     position: absolute;
     top: 0;
@@ -14819,7 +14821,7 @@ body main section#bank .big-card:before, body main section#bank section#calendar
 body main section#bank .big-card .card-image {
     width: 100%;
     aspect-ratio: 16/7.5;
-    background-image: url("../img/banking-sky.jpg");
+    background-image: url("../img/banking-sky.webp");
     background-size: cover;
     border-top-right-radius: clamp(12px, 3vw, 60px);
     position: relative;

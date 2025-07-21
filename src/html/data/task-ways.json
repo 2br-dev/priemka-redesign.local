@@ -1,21 +1,21 @@
 [
 	{
-		"icon": "./lpk-2025/img/icons/personal.png",
+		"icon": "./lpk-2025/img/icons/personal.webp",
 		"header": "Лично",
 		"description": "Заглядывай с оригиналами и паспортом в гости! Если с тобой будут родители, то их паспорта тоже будут нужны на входе"
 	},
 	{
-		"icon": "./lpk-2025/img/icons/online.png",
+		"icon": "./lpk-2025/img/icons/online.webp",
 		"header": "Онлайн",
 		"description": "Способ для иностранных студентов поступить без сложностей: <a href=\"https://pk2025.kubsau.ru/registration\" target=\"_blank\">регистрируйся</a> на сайте, подавай документы через Личный кабинет"
 	},
 	{
-		"icon": "./lpk-2025/img/icons/mail.png",
+		"icon": "./lpk-2025/img/icons/mail.webp",
 		"header": "По почте",
 		"description": "Можешь выбрать \"Почту России\", CDEK или любого другого удобного оператора"
 	},
 	{
-		"icon": "./lpk-2025/img/icons/gosuslugi.png",
+		"icon": "./lpk-2025/img/icons/gosuslugi.webp",
 		"header": "Через Госуслуги",
 		"description": "Быстро, удобно и хоть с мобильного — переходи в раздел <a href=\"https://www.gosuslugi.ru/vuzonline\" target=\"_blank\">«Поступление в вуз онлайн»</a>"
 	}

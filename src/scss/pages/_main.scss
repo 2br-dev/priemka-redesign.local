@@ -216,7 +216,7 @@ body {
 						}
 
 						&#territory-image{
-							background-image: url('../img/map.jpg');
+							background-image: url('../img/map.webp');
 							background-size: cover;
 							background-position: center center;
 						}
@@ -248,7 +248,7 @@ body {
 							background-color: #0D191D;
 							padding: $padding;
 							color: #fff;
-							background-image: url('../img/noise.png');
+							background-image: url('../img/noise.webp');
 							
 						}
 						
@@ -264,7 +264,7 @@ body {
 						}
 
 						&#park-image{
-							background-image: url('../img/park.jpg');
+							background-image: url('../img/park.webp');
 							background-size: cover;
 						}
 						
@@ -729,6 +729,8 @@ body {
 									background-color: $secondary;
 									color: #fff;
 									text-align: center;
+									padding: 10px;
+									font-weight: bold;
 								}
 							}
 
@@ -1069,7 +1071,7 @@ body {
 					overflow: hidden;
 					cursor: pointer;
 					background-color: #4a87b6;
-					background-image: url('../img/phone.jpg');
+					background-image: url('../img/phone.webp');
 					color: #fff;
 					background-size: cover;
 					background-position: bottom right;
@@ -1375,7 +1377,7 @@ body {
 					display: block;
 					width: 70%;
 					height: 100%;
-					background-image: url('../img/banking-sky.jpg');
+					background-image: url('../img/banking-sky.webp');
 					background-size: cover;
 					position: absolute;
 					top: 0;
@@ -1421,7 +1423,7 @@ body {
 					& .card-image{
 						width: 100%;
 						aspect-ratio: 16 / 7.5;
-						background-image: url('../img/banking-sky.jpg');
+						background-image: url('../img/banking-sky.webp');
 						background-size: cover;
 						border-top-right-radius: clamp(12px, 3vw, 60px);
 						position: relative;

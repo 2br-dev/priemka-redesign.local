@@ -13748,10 +13748,16 @@ body main section#networks .image-wrapper .name {
     position: absolute;
     top: clamp(10px, 2.5vw, 40px);
     left: clamp(10px, 2.5vw, 40px);
-    font-size: clamp(21px, 2vw, 36px);
+    font-size: clamp(26px, 2vw, 36px);
     color: #fff;
     line-height: 1.2em;
     width: 70%;
+}
+
+@media (max-width: 800px) {
+    body main section#networks .image-wrapper .name {
+        font-size: clamp(21px, 2vw, 48px);
+    }
 }
 
 body main section#networks .image-wrapper .button {
@@ -13769,10 +13775,16 @@ body main section#networks .image-wrapper .button {
 body main section#networks .intro {
     font-weight: bold;
     color: #0E5A67;
-    font-size: clamp(18px, 2vw, 32px);
+    font-size: clamp(26px, 2vw, 32px);
     line-height: 1.2em;
     margin-bottom: 3rem;
     display: block;
+}
+
+@media (max-width: 800px) {
+    body main section#networks .intro {
+        font-size: clamp(21px, 2.5vw, 48px);
+    }
 }
 
 body main section#networks .slider-wrapper {

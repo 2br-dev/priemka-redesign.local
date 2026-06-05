@@ -19,7 +19,7 @@ class Calculator{
 
 	outputContainer:HTMLElement;
 	cards_data:IData;
-	selectedCase:ICardData;
+	selectedCase:ICardData | null = null;
 	filterParams = {
 		quickSearch: "",
 		level: "Бакалавриат/специалитет",
@@ -42,14 +42,14 @@ class Calculator{
 			let filteredData = this.filter(data);
 			this.cards_data = data;
 			this.render(filteredData);
-			
+		
 			// Если в GET параметрах открыты координаты карточки, открываем её
 			if(window.location.search != ""){
 				let URLParamsString = window.location.search.substring(1);
 				let URLParams = new URLSearchParams(URLParamsString);
-				let id = parseInt(URLParams.get("id"));
-				let form = URLParams.get("form");
-				let level = URLParams.get("level");
+				let id = parseInt(URLParams.get("id") || "-1");
+				let form = URLParams.get("form") || undefined;
+				let level = URLParams.get("level") || undefined;
 	
 				this.openCard(null, {
 					Id: id,
@@ -67,6 +67,7 @@ class Calculator{
 		$('body').on('click', '#calc-reset', this.resetFilters.bind(this)); 			// Сброс фильтрации
 		$('body').on('click', '.faculty-header', this.toggleFaculty.bind(this)); 		// Переключение отображения факультета
 		$('body').on('click', '.spec-card', this.openCard.bind(this));					// Открытие подробных данных о факультете
+		$('body').on('click', '.card-trigger', this.openCardFromSlider.bind(this));
 		$('body').on('click', '.faculty-modal-close', this.closeCard.bind(this));		// Закрытие модального окна при клике на нём
 		$('body').on('click', '#share', this.shareModal.bind(this));					// Поделиться
 		$('body').on('click', '.faculty-modal-wrapper', this.closeOutside.bind(this))	// Закрытие модального окна по клику мимо
@@ -555,11 +556,15 @@ class Calculator{
 		let numberPaid = card.querySelector('.number-paid .number-value');
 		let duration = card.querySelector('.number-duration .number-value');
 		let price = card.querySelector('.number-cost .number-value');
+		let formDescription = card.querySelector('.form-description');
 
 		if(!numberFree || !numberPaid || !duration) return;
 
 		numberFree.textContent = (form.Vacations.Free.Total || 0).toString();
 		numberPaid.textContent = (form.Vacations.Paid.Total || 0).toString();
+		if(formDescription){
+			formDescription.textContent = form.Description;
+		}
 		duration.textContent = (form.Duration || 0).toString();
 
 		if(!form.Remark){
@@ -716,33 +721,51 @@ class Calculator{
 
 	}
 
+	openCardFromSlider(e:JQuery.ClickEvent)
+	{
+		e.preventDefault();
+		const el = e.currentTarget as HTMLAnchorElement;
+		const params = new URL(el.href).searchParams;
+
+		const urlParams:IURLCardData = {
+			Id: parseInt(params.get('id') || "-1"),
+			Form: params.get("form") || "",
+			Level: params.get("level") || ""
+		}
+
+		this.openCard(null, urlParams, null, true);
+	}
+
 	/**
 	 * Открытие карточки с описанием факультета
 	 */
-	openCard(e:JQuery.ClickEvent, URLParams:IURLCardData = null, historyCase:ICardData = null){
+	openCard(e:JQuery.ClickEvent | null, URLParams:IURLCardData | null = null, historyCase:ICardData | null = null, dontScroll = false){
 
 		// let selectedCase:ICardData;
 		let card:HTMLElement;
-		debugger;
 		
 		if(!URLParams){
 			
-			if(!historyCase){
+			if(!historyCase && e){
 
 				card = e.currentTarget;
 			
 				// Прерываем выполнение если клик происходит по интерактивному элементу внутри карточки
-				let path = Array.from(e.originalEvent?.composedPath());
-				let links = path.filter((el:HTMLElement) => {
-					if(el.classList){
-						return el.classList.contains('remark-popup') || el.tagName == 'A';
-					}else{
-						return el.tagName == "A";
-					}
-				});
-			
-				if(links.length) return;
-				e.preventDefault();
+				if(e.originalEvent){
+
+					let path = Array.from(e.originalEvent?.composedPath());
+					let links = path.filter(element => {
+						const el = element as HTMLElement;
+						if(el.classList){
+							return el.classList.contains('remark-popup') || el.tagName == 'A';
+						}else{
+							return el.tagName == "A";
+						}
+					});
+				
+					if(links.length) return;
+					e.preventDefault();
+				}
 	
 				// Закрываем remark-popup если он был открыт
 				let remarkPopup = <HTMLElement>card.querySelector('.remark-popup');
@@ -754,7 +777,7 @@ class Calculator{
 				}
 			
 				// Если клик по карточке не происходит по интерактивным элементам, продолжаем…
-				let id = parseInt(card.dataset['id']);
+				let id = parseInt(card.dataset['id'] || "-1");
 			
 				this.selectedCase = this.cards_data.Elements.filter((card:ICardData) => {
 					return card.Id == id;
@@ -781,11 +804,19 @@ class Calculator{
 			history.scrollRestoration = 'manual';
 			let Faculty = this.selectedCase.Faculty.Name;
 
-			let element = $(`[data-faculty='${Faculty}']`);
-			let top = element.offset().top;
-			let content = element.next();
-			content.show();
-			document.documentElement.scrollTop = top;
+			let element = document.querySelector(`[data-faculty='${Faculty}']`) as HTMLElement;
+
+			if(element){
+				let top = $(element).offset()?.top || 0;
+				let content = $(element).next();
+				content.show();
+
+				if(!dontScroll){
+					document.documentElement.scrollTop = top;
+				}
+			}
+			
+
 		}
 
 		// Выбранный уровень образования
@@ -806,9 +837,9 @@ class Calculator{
 			}
 		}
 
-		// Если форма обучения - магистратура, прерываем выполнения (ждём описания)
+		// Если нет описания - выходим
 		// TODO Убрать ограничения, когда получим данные
-		if(this.selectedCase.NoDetails){
+		if(this.selectedCase.NoDetails || this.selectedCase?.SelectedLevel?.Name == "Магистратура"){
 			return null;
 		}
 
@@ -837,7 +868,6 @@ class Calculator{
 				});
 			})
 		}
-
 
 		let dom = mustache.render(fullcard_tpl, this.selectedCase);
 

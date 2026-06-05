@@ -26,6 +26,7 @@ let template = `
 				</div>
 			</div>
 			<div class="title"><h4 class="no-margin">{{Speciality}}</h4></div>
+			<div class="form-description">{{SelectedLevel.Forms.0.Description}}</div>
 			<div class="subtitle"><span class="code">{{Education_levels.0.Code}}</span> {{Profile}}</div>
 			{{#Label}}
 			<div class="spec-card-label"><span>{{Label}}</span></div>

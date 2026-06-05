@@ -60,6 +60,35 @@ document.addEventListener('DOMContentLoaded', () => {
 	initMap();
 	let calendar = new Calendar('#calendar-output').init();					// Календарь событий
 	let calculator = new Calculator('#output').init();						// Калькулятор
+
+	const sliderElem = document.querySelector<HTMLElement>('#programs-slider');
+
+	const programsSlider = (sliderElem && !sliderElem.classList.contains('swiper-initialized')) 
+	? new Swiper(sliderElem, {
+		spaceBetween: 20,
+		pagination: {
+			el: '#programs-pagination',
+			type: 'bullets',
+			clickable: true,
+			dynamicBullets: true,
+			dynamicMainBullets: 3
+		},
+		navigation: {
+			prevEl: '#program-prev',
+			nextEl: '#program-next'
+		},
+		breakpoints: {
+			300: {
+				slidesPerView: 1
+			},
+			900: {
+				slidesPerView: 2
+			},
+			1400: {
+				slidesPerView: 3
+			}
+		}
+	}): null;
 });
 
 function toggleFeature(e:JQuery.ClickEvent){
@@ -145,6 +174,15 @@ function renderPage(){
 	header.style.background = background;
 	header.style.backdropFilter = filter;
 	header.style['webkitBackdropFilter'] = filter;
+
+	let arrowWrapper = document.querySelectorAll('.slider-arrow-wrapper');
+	let image = document.querySelector('#programs-slider .img');
+
+	if(image && arrowWrapper.length){
+		let imageHeight = image?.clientHeight;
+
+		arrowWrapper.forEach(wrapper => (wrapper as HTMLElement).style.height = imageHeight + 'px');
+	}
 
 	// #endregion
 

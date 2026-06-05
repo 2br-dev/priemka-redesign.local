@@ -1,0 +1,23 @@
+<section id="networks">
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<h2>Только в КУБГАУ</h2>
+				<div class="slider-wrapper">
+					<div class="slider-arrow-wrapper aw-prev">
+						<div class="program-arrow" id="program-prev">@@include('../parts/img/droplet-prev.svg')</div>
+					</div>
+					<div class="slider-arrow-wrapper aw-next">
+						<div class="program-arrow" id="program-next">@@include('../parts/img/droplet-next.svg')</div>
+					</div>
+					<div id="programs-slider" class="swiper">
+						<div class="swiper-wrapper">
+							@@loop('../parts/program-slide.html', './data/network-programs.json')
+						</div>
+					</div>
+				</div>
+				<div class="swiper-pagination" id="programs-pagination"></div>
+			</div>
+		</div>
+	</div>
+</section>

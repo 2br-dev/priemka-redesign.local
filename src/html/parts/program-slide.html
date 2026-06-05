@@ -1,0 +1,20 @@
+<div class="swiper-slide">
+	<a class="image-wrapper@@if(link.target=='_self'){ card-trigger}" href="@@link.url" target="@@link.target" id="@@id">
+		<span class="name">@@name</span>
+		@@if(image_url == ""){
+			<div class="img">Место для картинки</div>
+		}
+		@@if(image_url != ""){
+			<img class="img" src="./lpk-2025/img/programs/@@image_url" alt="Иллюстрация направления">
+		}
+		<span class="button">@@link.linktext</span>
+	</a>
+	<div class="labels-wrapper">
+		@@for(let i =0; i<labels.length; i++){
+			<div class="label ` + labels[i].className  + `">` + labels[i].name + `</div>
+		}
+	</div>
+	<a class="intro@@if(link.target=='_self'){ card-trigger}" href="@@link.url" target="@@link.target">
+		@@intro
+	</a>
+</div>

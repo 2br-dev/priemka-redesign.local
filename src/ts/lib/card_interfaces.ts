@@ -3,6 +3,7 @@ export interface IEducationForm{
 	Duration: number,
 	Price: number,
 	Remark:string,
+	Description: string,
 	Vacations: {
 		Free: {
 			Total: number,
@@ -78,7 +79,7 @@ export interface IPreparedData{
 }
 
 export interface IURLCardData{
-	Id:number,
-	Form:string,
-	Level:string
+	Id?:number,
+	Form?:string,
+	Level?:string
 }

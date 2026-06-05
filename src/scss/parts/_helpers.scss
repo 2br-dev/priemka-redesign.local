@@ -3,6 +3,23 @@ body {
 		margin-bottom: $gutter-width;
 	}
 
+	& .development{
+		border: 8px dashed black;
+		padding: 8vmax;
+		text-align: center;
+		position: relative;
+
+		&:before{
+			content: '';
+			display: block;
+			position: absolute;
+			inset: -8px;
+			border: 8px solid orange;
+			mix-blend-mode: multiply;
+			pointer-events: none;
+		}
+	}
+
 	& .bttn {
 		display: inline-block;
 		border-radius: 2em;

@@ -119,7 +119,204 @@ body {
 
 	main {
 		& section {
+
 			padding: 4vmax 0;
+
+			& .row{
+				margin-bottom: 0;
+			}
+
+			&#networks{
+				text-align: left;
+
+				& .img{
+					display: flex;
+					display: flex;
+					height: 100%;
+					align-items: center;
+					justify-content: center;
+					color: #333;
+					margin-left: auto;
+				}
+
+				& .slider-arrow-wrapper{
+					
+					position: relative;
+					position: absolute;
+					
+					@media(max-width: 850px){
+						display: none;
+					}
+					
+					&.aw-prev{
+						left: 0;
+					}
+					
+					&.aw-next{
+						right: 0;
+					}
+				}
+				
+				& .image-wrapper{
+					border-radius: 1vmax;
+					display: block;
+					position: relative;
+					width: 100%;
+					aspect-ratio: 4 / 3;
+					overflow: hidden;
+					background: #ccc;
+
+					&#biotech{
+						background-image: linear-gradient(to right, #84B508, #BAEB51);
+					}
+					
+					&#vine{
+						background-image: linear-gradient(to right, #3C1E7C, #8131FF);
+					}
+
+					&#tourism{
+						background-image: linear-gradient(to right, #295D6C, #367F8A);
+					}
+
+					&#moscow{
+						background-image: linear-gradient(to right, #0868AC, #2495D4);
+					}
+					
+					&#spb{
+						background-image: linear-gradient(to right, #D72D3E, #FF5061);
+					}
+					
+					&#world-agrarium-markets{
+						background-image: linear-gradient(to right, #FF6B00, #FF8001);
+					}
+
+					& .name{
+						position: absolute;
+						top: clamp(10px, 2.5vw, 40px);
+						left: clamp(10px, 2.5vw, 40px);
+						font-size: clamp(21px, 2vw, 36px);
+						color: #fff;
+						line-height: 1.2em;
+						width: 70%;
+					}
+
+					& .button{
+						position: absolute;
+						bottom: clamp(10px, 2.5vw, 40px);
+						left: clamp(10px, 2.5vw, 40px);
+						font-size: clamp(16px, 2vw, 18px);
+						color: #333;
+						background-color: #fff;
+						line-height: 2.5rem;
+						padding: 0 1.5rem;
+						border-radius: 12px;
+					}
+				}
+
+				& .intro{
+					font-weight: bold;
+					color: $primary;
+					font-size: clamp(18px, 2vw, 32px);
+					line-height: 1.2em;
+					margin-bottom: 3rem;
+					display: block;
+				}
+
+				& .slider-wrapper{
+					position: relative;
+
+					& .program-arrow{
+						position: absolute;
+						top: 50%;
+						transform: translate(-50%, -50%);
+						z-index: 2;
+
+						& svg{
+							pointer-events: none;
+						}
+						
+						&:not(.swiper-button-disabled){
+							cursor: pointer;
+						}
+						
+						&#p-next{
+							right: 0;
+							transform: translate(50%, -50%);
+						}
+
+						& .arrow-body{
+							fill: #0E5A67;
+						}
+
+						& .arrow-bg{
+							transition: fill .2s;
+							fill: #fff;
+						}
+
+						&:not(.swiper-button-disabled):hover .arrow-bg{
+							fill: #DCF6E8;
+						}
+
+						&.swiper-button-disabled{
+
+							& .arrow-body{
+								fill: #eee;
+							}
+						}
+					}
+				}
+
+				& .labels-wrapper{
+					margin: 1rem 0;
+					font-size: clamp(12px, 1.5vw, 14px);
+					line-height: 1.2rem;
+					display: flex;
+					flex-wrap: wrap;
+					gap: .5rem;
+
+					& .label{
+						padding: 0 .75em;
+						display: block;
+						line-height: 1.6em;
+						border-radius: 2em;
+
+						&-green{
+							color: #0E5A67;
+							background-color: #DBF9E6;
+						}
+
+						&-orange{
+							color: #8E3C00;
+							background-color: #FFF3DA;
+						}
+					}
+				}
+
+				& .link-wrapper{
+
+					& a{
+						color: $primary;
+						text-decoration: underline;
+						text-decoration-style: solid;
+					}
+				}
+
+				& .swiper-pagination{
+					position: relative;
+					bottom: unset;
+
+					&-bullet{
+						width: 1rem;
+						height: 1rem;
+
+						transition: all .2s;
+
+						&-active{
+							background-color: #0E5A67;
+						}
+					}
+				}
+			}
 
 			&#hero{
 
@@ -127,6 +324,11 @@ body {
 				margin-bottom: 2vmax;
 				background-size: cover;
 				background-position: center center;
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-end;
+				padding-top: 10vmax;
+				padding-bottom: 0;
 				
 				&:before{
 					content: '';
@@ -143,14 +345,21 @@ body {
 					}
 				}
 
-				& .container{
-					transform: translateY(7vmax);
-				}
-
 				& h1{
-					font-size: clamp(24px, 3vw, 45px);
+					font-size: clamp(24px, 2.6vw, 40px);
 					line-height: 1.4em;
 					color: #fff;
+					font-weight: normal;
+				}
+
+				& img{
+					display: block;
+				}
+
+				@media(max-width: 800px){
+					& .hero-image{
+						order: 1;
+					}
 				}
 			}
 
@@ -757,6 +966,8 @@ body {
 									display: flex;
 									justify-content: space-between;
 									align-items: center;
+									flex-wrap: wrap;
+									gap: 1rem;
 
 									& .selected-form{
 										line-height: 2em;
@@ -802,6 +1013,16 @@ body {
 								& .subtitle {
 									padding: 10px $padding;
 									border-left: 4px solid $secondary;
+								}
+
+								& .form-description {
+									padding: 10px $padding;
+									border-left: 4px solid $secondary;
+									line-height: 1em;
+
+									&:empty{
+										display: none;
+									}
 								}
 
 								& .edform-wrapper {
@@ -1060,6 +1281,7 @@ body {
 
 						& h4{
 							margin: 0;
+							font-size: clamp(18px, 2vw, 24px);
 						}
 					}
 				}
@@ -1071,10 +1293,10 @@ body {
 					overflow: hidden;
 					cursor: pointer;
 					background-color: #4a87b6;
-					background-image: url('../img/phone.webp');
+					background-image: url('../img/phone-new.webp');
 					color: #fff;
 					background-size: cover;
-					background-position: bottom right;
+					background-position: center right;
 					aspect-ratio: 2.3 / 1;
 					padding: clamp(10px, 4vw, 40px);
 					max-width: 100%;
@@ -1082,10 +1304,13 @@ body {
 					@media(max-width: 500px){
 						aspect-ratio: 1 / 1.2;
 						min-height: 450px;
+						background-size: auto 120%;
+						background-position: top right 10%;
 					}
 
 					& p{
 						margin: 0;
+						font-size: clamp(16px, 3vw, 25px);
 					}
 
 					& h2{
@@ -1369,7 +1594,7 @@ body {
 				}
 
 				@media(max-width: 850px){
-					padding: 6vmax 0;
+					padding: 2vmax 0;
 				}
 
 				&:before{
@@ -1377,11 +1602,16 @@ body {
 					display: block;
 					width: 70%;
 					height: 100%;
-					background-image: url('../img/banking-sky.webp');
+					background-image: url('../img/banking-sky-new.webp');
 					background-size: cover;
+					background-position: center right -10vw;
 					position: absolute;
 					top: 0;
 					right: 0;
+					
+					@media(min-width: 2000px){
+						background-position: center center;
+					}
 
 					@media(max-width: $large){
 						display: none;
@@ -1423,17 +1653,11 @@ body {
 					& .card-image{
 						width: 100%;
 						aspect-ratio: 16 / 7.5;
-						background-image: url('../img/banking-sky.webp');
+						background-image: url('../img/banking-sky-new.webp');
 						background-size: cover;
+						background-position: center center;
 						border-top-right-radius: clamp(12px, 3vw, 60px);
 						position: relative;
-
-						& img{
-							position: absolute;
-							width: 48%;
-							bottom: 2vmax;
-							right: 0;
-						}
 					}
 					
 					& .card-content{
@@ -1565,6 +1789,10 @@ body {
 								& h3 {
 									margin: 0.2em 0;
 								}
+
+								& img{
+									width: 150px;
+								}
 							}
 						}
 					}
@@ -1593,7 +1821,7 @@ body {
 
 						& .banner-image {
 							& img {
-								object-position: bottom left !important;
+								object-position: bottom left;
 							}
 						}
 					}
@@ -1618,7 +1846,7 @@ body {
 
 						& .banner-image {
 							& img {
-								object-position: left center !important;
+								object-position: left center;
 							}
 
 							&:after {
@@ -1663,6 +1891,14 @@ body {
 						background-position: center center;
 						position: relative;
 
+						@media(max-width: 600px){
+							background-position: center center;
+							
+							& img{
+								object-fit: contain;
+							}
+						}
+
 						@media (max-width: 1600px) {
 							width: 50%;
 						}
@@ -1678,7 +1914,7 @@ body {
 
 						& img {
 							object-fit: cover;
-							object-position: bottom left;
+							object-position: center center;
 							max-width: 100%;
 							position: relative;
 							z-index: 2;
@@ -1707,6 +1943,9 @@ body {
 			}
 
 			&#faq {
+
+				padding: 4vmax 0;
+
 				& .faq-entry {
 					&:not(:last-of-type) {
 						border-bottom: 1px solid #ccc;
@@ -1774,19 +2013,36 @@ body {
 			&#docs-baner {
 				background-color: #FFE9C5;
 				padding: 4vmax 0;
-				
-				@media(min-width: 850px){
-					padding: 1vmax 0;
-				}
+				overflow: hidden;
 
 				& h2{
 					margin: 0;
+				}
+
+				& img{
+					max-width: 100%;
+					margin-top: -8vmax;
+					margin-bottom: -4vmax;
+					margin-left: auto;
+					display: block;
+					transform: translateY(20%);
+				}
+
+				@media(max-width: 800px){
+
+					& img{
+						margin-top: -4vmax;
+					}
 				}
 			}
 
 			&#contacts {
 				background-color: $primary;
 				color: #fff;
+
+				& .row{
+					margin-bottom: 2rem;
+				}
 
 				& a {
 					color: #fff;
@@ -1862,6 +2118,13 @@ body {
 					& small {
 						font-size: 12px;
 					}
+				}
+
+				& .social-links{
+					display: flex;
+					align-items: center;
+					justify-content: flex-end;
+					gap: 10px;
 				}
 			}
 
@@ -2023,8 +2286,9 @@ body {
 						& a {
 							display: block;
 							line-height: 2em;
-							padding: 0 1em;
+							padding: 0 clamp(.5em, 1vw, 1em);
 							color: $secondary;
+							white-space: nowrap;
 
 							&.selected {
 								background-color: $secondary;
